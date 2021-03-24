@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-lb-https
+  namespace: app
+  labels:
+    app: nginx
+    name: demo-lb-https
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: 443-to-443-tcp
+    port: 443
+    protocol: TCP
+    targetPort: 443
+  - name: 80-to-80-tcp
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: nginx
+  sessionAffinity: ClientIP
+  type: LoadBalancer
+  # loadBalancerIP: 34.75.97.125
+# status:
+#   loadBalancer:
+#     ingress:
+#     - ip: 34.75.97.125
