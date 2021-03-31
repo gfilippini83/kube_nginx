@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: nginxhttps
-        image: us.gcr.io/singular-elixir-308623/nginx:v5
+        image: us.gcr.io/adroit-lantern-308821/nginx:v1
         ports:
         - containerPort: 443
         - containerPort: 80
